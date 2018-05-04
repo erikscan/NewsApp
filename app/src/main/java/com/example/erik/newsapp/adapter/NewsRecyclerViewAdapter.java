@@ -73,7 +73,6 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     }
 
     public void addAll(List<News> list){
-        Log.e("teste", "teste");
         newsList.addAll(list);
     }
 }

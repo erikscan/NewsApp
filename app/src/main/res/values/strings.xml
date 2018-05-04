@@ -1,12 +1,8 @@
 <resources>
     <string name="app_name">NewsApp</string>
     <string name="title_activity_feed">FeedActivity</string>
-    <string name="news_title">Lorem Ipsum</string>
-    <string name="news_date">11/10/2018</string>
-    <string name="news_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu lacus sit amet sapien mollis sodales quis a urna. Aliquam cursus massa a eros sollicitudin, et consequat odio eleifend</string>
-    <string name="news_author">Ipsum</string>
-    <string name="news_section">Lorem</string>
     <string name="action_settings">Settings</string>
     <string name="no_news">No news available</string>
     <string name="no_connection">No news available</string>
+    <string name="api_key">c72f49d0-2955-4d4e-8d48-4f1c350733a0</string>
 </resources>

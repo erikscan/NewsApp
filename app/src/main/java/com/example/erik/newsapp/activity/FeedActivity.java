@@ -13,35 +13,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-
 import com.example.erik.newsapp.R;
 import com.example.erik.newsapp.adapter.NewsRecyclerViewAdapter;
 import com.example.erik.newsapp.model.News;
 import com.example.erik.newsapp.request.NewsRequestLoader;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class FeedActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<News>> {
 
     private static final String REQUEST_URL = "https://content.guardianapis.com/search";
-
-    //private List<News> newsList;
-    private NewsRecyclerViewAdapter newsRVA;
     private static final int NEWS_LOADER_ID = 1;
+    private NewsRecyclerViewAdapter newsRVA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //newsList = new ArrayList<>();
-        //NewsRequestLoader newsRequest = createNewsRequest();
-        //newsList = newsRequest.loadInBackground();
-//        for(int i = 0; i < 10; i++){
-//            String url = "site.com/" + i;
-//            String title = "Test Title " + i;
-//            String section = "Test Section " + i;
-//            String date = "01/01/200" + i;
-//            newsList.add(new News(url,title,section,date));
-//        }
         newsRVA = new NewsRecyclerViewAdapter(new ArrayList<News>(), this.getApplicationContext());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
@@ -51,7 +37,6 @@ public class FeedActivity extends AppCompatActivity implements LoaderManager.Loa
 
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
-
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
         if (networkInfo != null && networkInfo.isConnected()) {
@@ -72,10 +57,8 @@ public class FeedActivity extends AppCompatActivity implements LoaderManager.Loa
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
         Uri baseUri = Uri.parse(REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
-        uriBuilder.appendQueryParameter("q", "android");
-        uriBuilder.appendQueryParameter("api-key", "test");
+        uriBuilder.appendQueryParameter("api-key", getResources().getString(R.string.api_key));
         uriBuilder.appendQueryParameter("order-by", "newest");
-
         return new NewsRequestLoader(this, uriBuilder.toString());
     }
 
