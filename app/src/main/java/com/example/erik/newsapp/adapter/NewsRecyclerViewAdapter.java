@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +55,7 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String url = "http://www.google.com";
+                    String url = urlTextView.getText().toString();
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(url));
                     itemView.getContext().startActivity(i);
@@ -65,5 +66,14 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
             sectionTextView = itemView.findViewById(R.id.news_section);
             dateTextView = itemView.findViewById(R.id.news_date);
         }
+    }
+
+    public void clear(){
+        newsList.clear();
+    }
+
+    public void addAll(List<News> list){
+        Log.e("teste", "teste");
+        newsList.addAll(list);
     }
 }

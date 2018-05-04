@@ -7,12 +7,12 @@ import com.example.erik.newsapp.util.QueryUtils;
 import com.example.erik.newsapp.model.News;
 import java.util.List;
 
-public class NewsRequest extends AsyncTaskLoader<List<News>> {
+public class NewsRequestLoader extends AsyncTaskLoader<List<News>> {
 
-    private static final String LOG_TAG = NewsRequest.class.getName();
+    private static final String LOG_TAG = NewsRequestLoader.class.getName();
     private String mUrl;
 
-    public NewsRequest(Context context, String url) {
+    public NewsRequestLoader(Context context, String url) {
         super(context);
         mUrl = url;
     }
