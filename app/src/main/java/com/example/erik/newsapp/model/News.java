@@ -3,26 +3,24 @@ package com.example.erik.newsapp.model;
 import java.util.Objects;
 
 public class News {
-    String id;
+    String url;
     String title;
-    String author;
     String section;
     String date;
 
-    public News(String id, String title, String author, String section, String date){
-        this.id = id;
+    public News(String url, String title, String section, String date){
+        this.url = url;
         this.title = title;
-        this.author = author;
         this.section = section;
         this.date = date;
     }
 
-    public String getId() {
-        return id;
+    public String getUrl() {
+        return url;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String url) {
+        this.url = url;
     }
 
     public String getTitle() {
@@ -31,14 +29,6 @@ public class News {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     public String getSection() {
@@ -62,12 +52,11 @@ public class News {
         if (this == o) return true;
         if (!(o instanceof News)) return false;
         News news = (News) o;
-        return Objects.equals(getId(), news.getId());
+        return Objects.equals(getUrl(), news.getUrl());
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(getId());
+        return Objects.hash(getUrl());
     }
 }
